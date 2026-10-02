@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="88" viewBox="0 0 320 88" role="img" aria-label="TesiFlow">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <!-- icona: codice -> flusso -> pagina di tesi -->
+  <rect x="4" y="4" width="80" height="80" rx="18" fill="url(#bg)"/>
+  <!-- parentesi di codice -->
+  <path d="M26 30 L15 44 L26 58" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- freccia di flusso -->
+  <path d="M33 44 H46" fill="none" stroke="#93c5fd" stroke-width="4" stroke-linecap="round"/>
+  <path d="M42 39 L47 44 L42 49" fill="none" stroke="#93c5fd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- pagina con angolo piegato -->
+  <path d="M52 24 H66 L74 32 V64 H52 Z" fill="#fff"/>
+  <path d="M66 24 V32 H74 Z" fill="#bfdbfe"/>
+  <path d="M57 40 H69 M57 46 H69 M57 52 H66" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- wordmark -->
+  <text x="100" y="56" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="700" fill="#2563eb">Tesi<tspan fill="#60a5fa" font-weight="400">Flow</tspan></text>
+</svg>

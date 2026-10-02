@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.svg" alt="TesiFlow" width="280">
+</p>
+
 # TesiFlow
 
 **TesiFlow** è un metodo di lavoro, con la struttura di cartelle che lo supporta, per scrivere una tesi di laurea tecnica **a partire dal codice sorgente** di un progetto, con l'aiuto di un agente di programmazione (Claude Code).
