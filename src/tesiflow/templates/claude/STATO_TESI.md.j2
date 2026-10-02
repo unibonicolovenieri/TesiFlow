@@ -1,0 +1,45 @@
+# Stato della tesi — {{ t.titolo }}
+
+> Unica memoria tra una sessione e l'altra. Leggere per intero all'avvio, aggiornare dopo ogni unità di lavoro.
+
+## In corso
+
+_(nulla)_
+
+## Ricognizione iniziale
+
+_Non ancora eseguita._ Eseguire `/ricognizione`.
+
+## Indice concordato e stato dei capitoli
+
+Stati: da fare · scaletta approvata · bozza scritta · verificato · revisionato
+
+| File | Capitolo | Stato | Note |
+|---|---|---|---|
+{% for f, titolo in capitoli -%}
+| `{{ f }}` | {{ titolo }} | da fare | |
+{% endfor %}
+## Fonti usate per capitolo
+
+_(da compilare: capitolo → documenti, requisiti, file di codice con righe)_
+
+## Decisioni prese con l'utente
+
+_(data — decisione — motivo)_
+
+## Modifiche allo scheletro LaTeX
+
+_(pacchetti aggiunti, macro, cambi all'ordine dei capitoli)_
+
+## Domande aperte
+
+_(dati mancanti, riferimenti incerti, punti da chiarire con relatore/azienda)_
+
+## Sincronizzazioni di SourceCode
+
+_(compilate da `tesiflow sync`: cosa è cambiato nel codice)_
+
+## Registro delle sessioni
+
+| Data | Cosa è stato fatto | Prossimo passo suggerito |
+|---|---|---|

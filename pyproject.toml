@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tesiflow"
+version = "0.1.0"
+description = "Workspace, scheletro LaTeX e istruzioni per scrivere una tesi a partire da una code base con un agente di programmazione."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["typer>=0.12", "pyyaml>=6", "pydantic>=2", "jinja2>=3", "pathspec>=0.12"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+tesiflow = "tesiflow.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tesiflow"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

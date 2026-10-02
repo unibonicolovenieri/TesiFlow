@@ -1,0 +1,8 @@
+tipo_tesi: "Tesi di Laurea Magistrale"
+pagine_target: 100
+istruzioni:
+  registro: "formale e impersonale"
+  livello_dettaglio: "approfondito"
+  lunghezza: "circa 90-130 pagine"
+  regole_aggiuntive:
+    - "Confronta le scelte progettuali con lo stato dell'arte, citando solo riferimenti certi."

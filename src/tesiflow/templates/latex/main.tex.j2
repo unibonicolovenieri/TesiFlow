@@ -1,0 +1,91 @@
+% Generato da TesiFlow. Il blocco META e' rigenerato da `tesiflow regen`
+% a partire da tesiflow.yaml; il resto del file e' modificabile.
+\documentclass[11pt,a4paper,twoside,openright]{book}
+
+% TESIFLOW:META:BEGIN
+<< meta >>% TESIFLOW:META:END
+
+% --- Lingua e font ---------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[<< babel >>]{babel}  % ultima lingua = principale
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{csquotes}
+
+% --- Pagina ----------------------------------------------------------------------
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% --- Matematica, grafica, tabelle, listati -----------------------------------------
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{booktabs,array,tabularx}
+\usepackage{listings}
+\graphicspath{{figs/}}
+\lstset{
+  basicstyle=\ttfamily\small, breaklines=true, frame=single, numbers=left,
+  numberstyle=\tiny, columns=fullflexible, keepspaces=true, showstringspaces=false,
+  xleftmargin=1.5em, framexleftmargin=1.5em
+}
+
+% --- Nomenclatura e collegamenti ---------------------------------------------------
+\usepackage{nomencl}
+\makenomenclature
+\renewcommand{\nomname}{<< nomname >>}
+\usepackage[hidelinks]{hyperref}
+
+\title{\TesiTitolo}
+\author{\TesiCandidato}
+
+\begin{document}
+
+\frontmatter
+
+% --- Frontespizio ------------------------------------------------------------------
+\begin{titlepage}
+  \centering
+  {\Large\scshape \TesiAteneo\par}
+  \vspace{1.5cm}
+  {\large \TesiTipo\par}
+  \vfill
+  {\Huge\bfseries \TesiTitolo\par}
+  \vfill
+  \begin{flushleft}
+    \begin{tabular}{@{}ll}
+      \textbf{<< lbl_candidato >>:} & \TesiCandidato\\
+      \textbf{<< lbl_relatore >>:} & \TesiRelatore\\
+<% if t.correlatore %>      \textbf{<< lbl_correlatore >>:} & \TesiCorrelatore\\
+<% endif %><% if t.azienda %>      \textbf{<< lbl_azienda >>:} & \TesiAzienda\\
+<% endif %>    \end{tabular}
+  \end{flushleft}
+  \vfill
+  {\large << lbl_aa >> \TesiAnnoAccademico\par}
+\end{titlepage}
+
+\input{Dedica}
+\input{Acknowledgment}
+\input{Abstract_It}
+\input{Abstract_Eng}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\input{Nomenclature}
+
+\mainmatter
+
+% --- Capitoli (ordine modificabile) ------------------------------------------------
+<% for n in chapters %>\input{Chapter<< n >>}
+<% endfor %>\input{Conclusion}
+
+\backmatter
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

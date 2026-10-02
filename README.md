@@ -62,6 +62,41 @@ tesi/
 - **Riservatezza.** Eventuali vincoli aziendali (nomi interni, codice) si scrivono nelle regole e valgono per tesi e slide.
 - **Consegna portabile.** I capitoli non dipendono da modifiche al preambolo né da pacchetti non standard, per compilare anche su Overleaf.
 
+## Lo strumento `tesiflow` (CLI)
+
+Automatizza la preparazione del workspace descritto sopra: scheletro LaTeX, istruzioni per l'agente e informazioni sul codice sorgente. La ricerca semantica (RAG) sul codice **non è inclusa**: chi ne ha bisogno può collegare lo strumento più adatto al proprio modello; nel frattempo l'agente usa la mappa statica del codice.
+
+### Installazione
+
+```bash
+pipx install .            # oppure: pip install -e . in un ambiente virtuale (Python 3.11+)
+```
+
+**LaTeX in locale (obbligatorio per compilare).** `tesiflow init`, `doctor` e `build` verificano che siano presenti `latexmk`, `pdflatex`, `bibtex`, `makeindex` e i pacchetti usati dallo scheletro, e in caso contrario spiegano come installarli:
+
+- macOS: `brew install --cask mactex-no-gui` (poi riapri il terminale)
+- Debian/Ubuntu: `sudo apt install latexmk texlive-latex-extra texlive-fonts-recommended texlive-lang-italian texlive-science`
+
+### Comandi
+
+| Comando | Cosa fa |
+|---|---|
+| `tesiflow init <nome>` | Crea il workspace (interattivo, oppure con flag / `--config file.yaml` / `-y`), copia il codice in `SourceCode/` senza `.git` né artefatti (rispetta `.gitignore`), genera LaTeX, `CLAUDE.md`, `STATO_TESI.md`, istruzioni per capitolo, comandi `/ricognizione`, `/scaletta`, `/scrivi`, `/verifica`, `/revisione`, `/slide`, mappa del codice, repo git. Rieseguirlo non sovrascrive nulla. |
+| `tesiflow build [--clean] [-v]` | `latexmk -pdf` + riepilogo di errori (con file:riga), riferimenti e citazioni non risolti, warning, `TODO` rimasti. |
+| `tesiflow doctor` | Controlla compilatore LaTeX, variabili, cartelle, file mancanti, `CLAUDE.md`/frontespizio allineati a `tesiflow.yaml`, riservatezza, `SourceCode/`, istruzioni con campi TODO. |
+| `tesiflow sync` | Riallinea `SourceCode/` alla sorgente originale, segnala le differenze in `STATO_TESI.md`, aggiorna la mappa. |
+| `tesiflow map` | Rigenera `.claude/contesto/mappa-codebase.md` (linguaggi, alberatura, punti d'ingresso, dipendenze, simboli con righe). |
+| `tesiflow instructions show / edit / profile <nome> / profiles` | Modifica guidata di registro, dettaglio, lunghezza, riservatezza e regole aggiuntive, senza editare il markdown. Rigenera `CLAUDE.md` conservando il blocco «Regole personalizzate». |
+| `tesiflow regen` | Riallinea `CLAUDE.md` e frontespizio (blocco `TESIFLOW:META` di `main.tex`) a `tesiflow.yaml` e ricrea i file mancanti, senza toccare i capitoli. |
+
+Profili disponibili: `triennale`, `magistrale`, `aziendale-riservato`. File modificati a mano e poi rigenerati vengono salvati prima in `.tesiflow/backup/`. `SourceCode/` è reso di sola lettura.
+
+### Sviluppo
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install -e . pytest && .venv/bin/pytest
+```
+
 ## Requisiti
 
 - [Claude Code](https://claude.com/claude-code)

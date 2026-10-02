@@ -1,0 +1,15 @@
+# Mappa della cartella (stabile)
+
+Workspace TesiFlow per la tesi «{{ t.titolo }}» ({{ t.candidato }}). Le regole di stesura sono in `../CLAUDE.md`.
+
+- `../tesiflow.yaml` — configurazione e variabili (modificare con `tesiflow instructions edit` / `tesiflow regen`).
+- `../STATO_TESI.md` — diario di lavorazione.
+- `../main.tex`, `../Chapter*.tex`, `../Conclusion.tex`, `../Abstract_*.tex`, `../references.bib` — tesi LaTeX.
+- `../DOCUMENTAZIONE/`, `../Requirements/`, `../HINTS/`, `../SLIDES/` — fonti e slide.
+- `../SourceCode/` — codice, **sola lettura**.
+- `../instructions/ChapterN.md` — istruzioni per capitolo.
+- `contesto/mappa-codebase.md` — mappa del codice (rigenerata da `tesiflow map` / `tesiflow sync`).
+- `contesto/lavoro-svolto.md` — sintesi del lavoro svolto (a cura di candidato e agente).
+- `commands/` — comandi `/ricognizione`, `/scaletta`, `/scrivi`, `/verifica`, `/revisione`, `/slide`.
+
+Compilazione: `tesiflow build`. Controllo di coerenza: `tesiflow doctor`.

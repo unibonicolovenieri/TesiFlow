@@ -1,0 +1,12 @@
+tipo_tesi: "Tesi di Laurea Magistrale"
+pagine_target: 100
+riservatezza:
+  attiva: true
+  note: "TODO: indicare i vincoli (nomi interni, codice, dati, clienti). Nei listati e nelle slide anonimizzare o omettere quanto non autorizzato."
+istruzioni:
+  registro: "formale e impersonale"
+  livello_dettaglio: "approfondito"
+  lunghezza: "circa 90-130 pagine"
+  regole_aggiuntive:
+    - "Prima di inserire un listato o un nome interno, verifica che rispetti i vincoli di riservatezza; in caso di dubbio chiedi."
+    - "Non riportare credenziali, endpoint o identificativi interni."

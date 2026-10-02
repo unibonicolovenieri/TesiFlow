@@ -1,0 +1,8 @@
+tipo_tesi: "Tesi di Laurea Triennale"
+pagine_target: 50
+istruzioni:
+  registro: "formale e impersonale, accessibile"
+  livello_dettaglio: "essenziale"
+  lunghezza: "circa 40-60 pagine"
+  regole_aggiuntive:
+    - "Spiega ogni concetto tecnico alla prima occorrenza; evita assunzioni sul lettore."

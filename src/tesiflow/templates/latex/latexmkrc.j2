@@ -1,0 +1,23 @@
+# Compilazione locale (e Overleaf): `latexmk` oppure `tesiflow build`.
+$pdf_mode = 1;
+$pdflatex = 'pdflatex -interaction=nonstopmode -file-line-error -synctex=1 %O %S';
+$bibtex_use = 2;
+
+# Nomenclatura (nomencl): .nlo -> .nls
+add_cus_dep('nlo', 'nls', 0, 'nlo2nls');
+sub nlo2nls {
+    system("makeindex \"$_[0].nlo\" -s nomencl.ist -o \"$_[0].nls\" -t \"$_[0].nlg\"");
+}
+$clean_ext .= ' nlo nls nlg synctex.gz';
+
+# BibTeX segnala un errore quando non ci sono ancora citazioni: lo si ignora solo in quel caso.
+$bibtex = 'internal tf_bibtex %O %B';
+sub tf_bibtex {
+    my $base = pop @_;
+    my $ret = system('bibtex', @_, $base);
+    if ($ret != 0 && open(my $fh, '<', "$base.blg")) {
+        local $/; my $log = <$fh>; close $fh;
+        return 0 if $log =~ /I found no \\citation commands/ && $log =~ /There was 1 error message/;
+    }
+    return $ret;
+}
